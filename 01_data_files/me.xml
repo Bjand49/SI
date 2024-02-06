@@ -1,0 +1,9 @@
+<me>
+    <firstname>Bjørn</firstname>
+    <lastname>Andersen</lastname>
+    <hobbies>
+        <hobby>Drinks</hobby>
+        <hobby>Bouldering</hobby>
+        <hobby>mm</hobby>
+    </hobbies>
+</me>

@@ -1,0 +1,11 @@
+<Me>
+	<FirstName>Bjørn</FirstName>
+	<LastName>Andersen</LastName>
+	<Email>bjoe1381@stud.kea.dk</Email>
+	<Hobbies>
+		<Item>Drinks</Item>
+		<Item>Bouldering</Item>
+		<Item>mm</Item>
+		<Item>XML</Item>
+	</Hobbies>
+</Me>
