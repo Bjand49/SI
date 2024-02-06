@@ -17,13 +17,13 @@ def loadXML():
 
 
 def loadJSON():
-    file = open('Files//me.json','r').read()
+    file = open('Files//me.json','r',encoding="utf-8").read()
     data = json.loads(file)
     obj = me(**data)
     obj.print()
 
 def loadYAML():
-    file = open('Files//me.yaml', 'r').read()
+    file = open('Files//me.yaml', 'r',encoding="utf-8").read()
     data = yaml.safe_load(file)
     obj = me(**data)
     obj.print()
@@ -58,7 +58,7 @@ class me:
     self.hobbies = hobbies
 
   def print(self):
-    print(f"This is me. my name is {self.firstname} {self.lastname}, my Email is {self.lastname}, My hobbies involves {', '.join(self.hobbies)}")
+    print(f"This is me. my name is {self.firstname} {self.lastname}, my Email is {self.email}, My hobbies involves {', '.join(self.hobbies)}")
 
 loadJSON()
 loadYAML()
