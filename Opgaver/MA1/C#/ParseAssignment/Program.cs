@@ -24,6 +24,8 @@ internal class Program
         ReadXML();
         //YAML
         ReadYAML();
+        //TEXT
+        ReadText();
     }
     private static void ReadCSV()
     {
@@ -69,5 +71,17 @@ internal class Program
         var me = deserializer.Deserialize<Me>(file);
         Console.WriteLine(me);
 
+    }
+    private static void ReadText()
+    {
+        var file = File.ReadAllLines("Files\\me.txt");
+        var me = new Me()
+        {
+            FirstName = file[0],
+            LastName = file[1],
+            Email = file[2],
+            Hobbies = file[3].Split(',')
+        };
+        Console.WriteLine(me);
     }
 }
