@@ -1,0 +1,10 @@
+{
+    "firstname":"Bjørn",
+    "lastname":"Andersen",
+    "email" : "bjand49@gmail.com",
+    "hobbies" : [
+        "drinks",
+        "bouldering",
+        "mm"
+    ]
+}
