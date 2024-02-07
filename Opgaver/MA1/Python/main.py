@@ -4,7 +4,7 @@ import yaml
 import pandas as pd
 
 
-def loadXML():
+def load_xml():
     file = ET.parse('Files//me.xml')
     root = file.getroot()
     obj = me(
@@ -16,19 +16,19 @@ def loadXML():
     obj.print()
 
 
-def loadJSON():
+def load_json():
     file = open('Files//me.json','r',encoding="utf-8").read()
     data = json.loads(file)
     obj = me(**data)
     obj.print()
 
-def loadYAML():
+def load_yaml():
     file = open('Files//me.yaml', 'r',encoding="utf-8").read()
     data = yaml.safe_load(file)
     obj = me(**data)
     obj.print()
 
-def loadCSV():
+def load_csv():
     dataframe = pd.read_csv('Files//me.csv')
     data = dataframe.iloc[0]
     obj = me(
@@ -39,7 +39,7 @@ def loadCSV():
     )
     obj.print()
 
-def loadText():
+def load_text():
     file = open('Files//me.txt','r').read()
     data = file.split('\n')
     obj = me(
@@ -60,8 +60,8 @@ class me:
   def print(self):
     print(f"This is me. my name is {self.firstname} {self.lastname}, my Email is {self.email}, My hobbies involves {', '.join(self.hobbies)}")
 
-loadJSON()
-loadYAML()
-loadCSV()
-loadText()
-loadXML()
+load_json()
+load_yaml()
+load_csv()
+load_text()
+load_xml()
