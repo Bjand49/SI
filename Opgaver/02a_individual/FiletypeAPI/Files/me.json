@@ -1,0 +1,11 @@
+{
+  "firstname": "Bjørn",
+  "lastname": "Andersen",
+  "email": "bjoe1381@stud.kea.dk",
+  "hobbies": [
+    "drinks",
+    "bouldering",
+    "mm",
+    "json"
+  ]
+}
