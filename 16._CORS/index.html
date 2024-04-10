@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CORS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+
+<body>
+    <h2>NODE</h2>
+    <p id="node-time"></p>
+    <h2>FASTAPI</h2>
+    <p id="fastapi-time"></p>
+    <script>
+        const nodetime = document.getElementById("node-time")
+        const fastapitime = document.getElementById("fastapi-time")
+
+        fetch("http://localhost:8080/timestamp")
+            .then((response) => response.json())
+            .then((result) => {
+                nodetime.textContent = result.time;
+            });
+
+        fetch("http://localhost:8000/timestamp")
+            .then((response) => response.json())
+            .then((result) => {
+                fastapitime.textContent = result.time;
+            });    
+    </script>
+</body>
+
+</html>

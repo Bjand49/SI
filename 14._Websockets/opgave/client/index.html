@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Client</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+</head>
+
+<body>
+    <input id="textbox" />
+    <button onclick="sendMessage()">Send message</button>
+    <div id="chatlog">
+
+    </div>
+    <script>
+        const ws = new WebSocket("ws://bananana.serveo.net");
+        ws.onopen = () => {
+            console.log("Connected to the server")
+        };
+        ws.onerror = (error) => {
+            console.log("Something went wrong", error)
+        };
+        ws.onmessage = (event) => {
+            var container = document.getElementById("chatlog")
+            container.innerHTML += `<p>${event.data}<p>`;
+
+            console.log("message recived", event.data)
+        }
+        function sendMessage() {
+            console.log("message sent")
+            var textfield = document.getElementById("textbox");
+            var value = textfield.value;
+            console.log(value);
+            textfield.innerText = "";
+
+            ws.send(value);
+        }
+    </script>
+</body>
+
+</html>
