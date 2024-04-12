@@ -22,14 +22,37 @@
     <h2>File Form</h2>
     <form action="http://localhost:8080/fileform" method="post" enctype="multipart/form-data">
         <label for="file">File</label>
-        <input type="file" id="file" name="pic" accept="*" /><br>
-        
-        <label for="description">description</label>
-        <input type="text" id="description" name="description" /><br>
-        
+        <input type="file" id="file-input" name="file" accept="image/*" /><br>
+
+        <!-- <label for="description">description</label>
+        <input type="text" id="description" name="description" /><br> -->
+
         <input type="submit"></button>
     </form>
 
+
+    <script>
+        const fileInput = document.getElementById("file-input");
+        
+        fileInput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            const validtypes = ["image/jpeg","image/jpg","image/png","image/svg",];
+            if (!validtypes.includes(file.type))
+            {
+                alert("u stoopid, ur fil WRONG");
+                fileInput.value = "";
+                return;
+            }
+            if (file.size > 1 * 1024 * 1024)
+            {
+                alert("u real stoopid, ur fil too BIG");
+                return;
+            }
+            console.log(file);
+
+        });
+
+    </script>
 </body>
 
 </html>
