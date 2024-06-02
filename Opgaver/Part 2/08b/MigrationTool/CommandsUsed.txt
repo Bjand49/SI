@@ -1,0 +1,3 @@
+dotnet ef migrations script
+dotnet ef migrations add InitialMigration
+dotnet ef migrations add InitialMigration --context MySqlDB

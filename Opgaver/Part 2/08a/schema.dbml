@@ -1,0 +1,26 @@
+Table "Cars" {
+  "Id" char(36) [pk, not null]
+  "Name" longtext
+  "Type" longtext
+  "Color" longtext
+  "Battery" longtext
+  "Hitch" tinyint(1) [not null]
+  "IsAvailable" tinyint(1) [not null]
+}
+
+Table "Part" {
+  "Id" char(36) [pk, not null]
+  "Name" longtext
+  "CarId" char(36) [not null]
+
+  Indexes {
+    CarId [name: "IX_Part_CarId"]
+  }
+}
+
+Table "__EFMigrationsHistory" {
+  "MigrationId" varchar(150) [pk, not null]
+  "ProductVersion" varchar(32) [not null]
+}
+
+Ref "FK_Part_Cars_CarId":"Cars"."Id" < "Part"."CarId" [delete: cascade]
