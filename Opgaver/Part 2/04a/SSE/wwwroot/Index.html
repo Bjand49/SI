@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE(Server side events)</title>
+</head>
+
+<body>
+    <h1>Server side events</h1>
+    <p>Your time is up the time is <u id="time"></u></p>
+    <p>Status <b id="status"></b></p>
+    <script>
+        const timecontainer = document.getElementById("time");
+        const statuscontainer = document.getElementById("status");
+
+        const timesource = new EventSource("https://localhost:7122/sse");
+
+        timesource.addEventListener("message", (event) => {
+            timecontainer.textContent = event.data;
+        });
+
+        timesource.addEventListener("open", (event) => {
+            console.log("open")
+            statuscontainer.textContent = "Connected";
+        });
+
+        timesource.addEventListener("error", (event) => {
+            console.log("error")
+            if (event.target.readyState === EventSource.CLOSED) {
+                statuscontainer.textContent = 'Connection was closed';
+            } else if (event.target.readyState === EventSource.CONNECTING) {
+                statuscontainer.textContent = 'Connecting...';
+            } else {
+                statuscontainer.textContent = 'Error';
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
